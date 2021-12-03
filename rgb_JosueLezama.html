@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="Colors RGM" content="width=device-width" />
+    <title>Search colors RGB into code hexadecimal</title>
+  </head>
+  <body>
+      <h2>Ejercicio 9 Colors RGB</h2>
+        <form name="colorHexa" action="rgbRes.html">
+            <p>Color RED: </p>
+            <input type="text" id="r"/>
+            <p>Color GREEN</p>
+            <input type="text" id="g"/>
+            <p>Color BLUE:</p>
+            <input type="text" id="b"/>
+            <p></p>
+            <input type="button" id="send" value="SEND" onclick="mostrar()"/>
+        </form>
+        <script language="javaScript">
+            function mostrar(){
+                r=document.colorHexa.r.value;
+                g=document.colorHexa.g.value;
+                b=document.colorHexa.b.value;
+                var sinEspacios= /^\d{1,3}$/;
+                var menoresA255=/(?:(?:2(?:[0-4][0-9]|5[0-5])|1\d\d)|^\d{1,2})$/m;
+                if (sinEspacios.test(r) && sinEspacios.test(g) && sinEspacios.test(b)){
+                    if(menoresA255.test(r) && menoresA255.test(g) && menoresA255.test(b)){
+                        alert("Color red: #"+r+"\n"+"Color GREEN: #"+g+"\n"+"Color BLUE: #"+b);
+                        document.colorHexa.submit();
+                    }else {
+                        alert("Recuerde que todos los valores de los colores RGB son menores a 255");
+                    }
+                }else{
+                    alert("Escriba todos los valores porfavor, de tipo numero que no pasen los 3 digitos")
+                }
+
+            }
+        </script>
+  </body>
+</html>
